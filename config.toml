@@ -1,5 +1,11 @@
 baseURL = "https://shengjie77.github.io/blog/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Sheng Jie's blog"
 theme = "yinyang"
 publishDir = "docs"
+
+[author]
+    name = "Sheng Jie"
+
+[params]
+    disqus = "ShengJie"

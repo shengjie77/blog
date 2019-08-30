@@ -6,6 +6,7 @@ publishDir = "docs"
 
 [author]
     name = "Sheng Jie"
+    homepage = "https://shengjie77.github.io/blog/"
 
 [params]
     disqus = "ShengJie"

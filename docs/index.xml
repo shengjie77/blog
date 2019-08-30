@@ -6,27 +6,24 @@
     <description>Recent content on Sheng Jie&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Aug 2019 15:51:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 30 Aug 2019 15:44:51 +0800</lastBuildDate>
     
 	<atom:link href="https://shengjie77.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test</title>
-      <link>https://shengjie77.github.io/blog/posts/program/test/</link>
-      <pubDate>Fri, 30 Aug 2019 15:51:16 +0800</pubDate>
-      
-      <guid>https://shengjie77.github.io/blog/posts/program/test/</guid>
-      <description>asdsf</description>
-    </item>
-    
-    <item>
-      <title>Usage of mod</title>
+      <title>[Rust]mod的使用</title>
       <link>https://shengjie77.github.io/blog/posts/rust/usage-of-mod/</link>
       <pubDate>Fri, 30 Aug 2019 15:44:51 +0800</pubDate>
       
       <guid>https://shengjie77.github.io/blog/posts/rust/usage-of-mod/</guid>
-      <description>struct P { age: u32, }  </description>
+      <description>mod类似其他语言中的namespace, 用来把代码分解到不同的模块或文件中。具体使用可以分为三种情况。
+同一个文件 Filename: src/main.rs
+fn main() { // 1. foo::foo_func(); // 2. self::foo::foo_func(); // 3. crate::foo::foo_func(); } mod foo { pub fn foo_func() { println!(&amp;quot;from foo_func&amp;quot;); } }  整个rust项目至少由一个mod组成，比如这里的main，所以foo是main的child mod
+以文件作为模块 Filename: src/bar.rs
+// 此时mod的名字就是文件名，不再需要用mod声明了 pub fn bar_func() { println!(&amp;quot;from bar_func&amp;quot;) }  Filename: src/main.rs
+// 告诉编译器加载bar这个mod // 然后就会在同一目录下，找名字叫`bar`的文件或目录， mod bar; fn main() { bar::bar_func(); }  以目录作为模块 目录结构
+src |-- main.rs |-- foo |-- mod.rs |-- bar.</description>
     </item>
     
   </channel>

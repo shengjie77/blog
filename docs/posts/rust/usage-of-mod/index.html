@@ -17,9 +17,15 @@
            "@id": "https://shengjie77.github.io/blog/"
       },
       "articleSection" : "posts",
-      "name" : "Usage of mod",
-      "headline" : "Usage of mod",
-      "description" : "struct P { age: u32, }  ",
+      "name" : "[Rust]mod的使用",
+      "headline" : "[Rust]mod的使用",
+      "description" : "mod类似其他语言中的namespace, 用来把代码分解到不同的模块或文件中。具体使用可以分为三种情况。
+同一个文件 Filename: src/main.rs
+fn main() { // 1. foo::foo_func(); // 2. self::foo::foo_func(); // 3. crate::foo::foo_func(); } mod foo { pub fn foo_func() { println!(&quot;from foo_func&quot;); } }  整个rust项目至少由一个mod组成，比如这里的main，所以foo是main的child mod
+以文件作为模块 Filename: src/bar.rs
+// 此时mod的名字就是文件名，不再需要用mod声明了 pub fn bar_func() { println!(&quot;from bar_func&quot;) }  Filename: src/main.rs
+// 告诉编译器加载bar这个mod // 然后就会在同一目录下，找名字叫`bar`的文件或目录， mod bar; fn main() { bar::bar_func(); }  以目录作为模块 目录结构
+src |-- main.rs |-- foo |-- mod.rs |-- bar.",
       "inLanguage" : "en-US",
       "author" : "Sheng Jie",
       "creator" : "Sheng Jie",
@@ -33,10 +39,16 @@
       "keywords" : [  ]
   }
 </script>
-<title>Usage of mod - Sheng Jie&#39;s blog</title>
-  <meta property="og:title" content="Usage of mod - Sheng Jie&#39;s blog" />
+<title>[Rust]mod的使用 - Sheng Jie&#39;s blog</title>
+  <meta property="og:title" content="[Rust]mod的使用 - Sheng Jie&#39;s blog" />
   <meta property="og:type" content="article" />
-  <meta name="description" content="struct P { age: u32, }  " />
+  <meta name="description" content="mod类似其他语言中的namespace, 用来把代码分解到不同的模块或文件中。具体使用可以分为三种情况。
+同一个文件 Filename: src/main.rs
+fn main() { // 1. foo::foo_func(); // 2. self::foo::foo_func(); // 3. crate::foo::foo_func(); } mod foo { pub fn foo_func() { println!(&quot;from foo_func&quot;); } }  整个rust项目至少由一个mod组成，比如这里的main，所以foo是main的child mod
+以文件作为模块 Filename: src/bar.rs
+// 此时mod的名字就是文件名，不再需要用mod声明了 pub fn bar_func() { println!(&quot;from bar_func&quot;) }  Filename: src/main.rs
+// 告诉编译器加载bar这个mod // 然后就会在同一目录下，找名字叫`bar`的文件或目录， mod bar; fn main() { bar::bar_func(); }  以目录作为模块 目录结构
+src |-- main.rs |-- foo |-- mod.rs |-- bar." />
 
   <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
   <link rel="stylesheet"
@@ -75,7 +87,7 @@
 
         </div>
         <header class="post-header">
-          <h1 class="post-title">Usage of mod</h1>
+          <h1 class="post-title">[Rust]mod的使用</h1>
           <div class="row post-desc">
             <div class="col-xs-6">
               
@@ -87,7 +99,7 @@
             <div class="col-xs-6">
               
               <div class="post-author">
-                <a target="_blank" href="">@Sheng Jie</a>
+                <a target="_blank" href="https://shengjie77.github.io/blog/">@Sheng Jie</a>
               </div>
               
             </div>
@@ -95,8 +107,106 @@
         </header>
 
         <div class="post-content markdown-body">
-          <pre><code class="language-rust">struct P {
-    age: u32,
+          
+
+<p><code>mod</code>类似其他语言中的namespace, 用来把代码分解到不同的模块或文件中。具体使用可以分为三种情况。</p>
+
+<h1 id="同一个文件">同一个文件</h1>
+
+<p>Filename: src/main.rs</p>
+
+<pre><code class="language-rust">fn main() {
+    // 1.
+    foo::foo_func();
+
+    // 2.
+    self::foo::foo_func();
+
+    // 3.
+    crate::foo::foo_func();
+}
+
+mod foo {
+    pub fn foo_func() {
+        println!(&quot;from foo_func&quot;);
+    }
+}
+</code></pre>
+
+<p>整个rust项目至少由一个<code>mod</code>组成，比如这里的<code>main</code>，所以<code>foo</code>是<code>main</code>的child mod</p>
+
+<h1 id="以文件作为模块">以文件作为模块</h1>
+
+<p>Filename: src/bar.rs</p>
+
+<pre><code class="language-rust">// 此时mod的名字就是文件名，不再需要用mod声明了
+pub fn bar_func() {
+    println!(&quot;from bar_func&quot;)
+}
+</code></pre>
+
+<p>Filename: src/main.rs</p>
+
+<pre><code class="language-rust">// 告诉编译器加载bar这个mod
+// 然后就会在同一目录下，找名字叫`bar`的文件或目录，
+mod bar;
+
+fn main() {
+    bar::bar_func();
+}
+</code></pre>
+
+<h1 id="以目录作为模块">以目录作为模块</h1>
+
+<p>目录结构</p>
+
+<pre><code>src
+|-- main.rs
+|-- foo
+    |-- mod.rs
+    |-- bar.rs
+    |-- baz.rs
+</code></pre>
+
+<p>如果模块是一个目录的话，必须定义<code>mod.rs</code>这个文件，它是整个模块的入口，类似CommonJS里的<code>index.js</code>。</p>
+
+<p>Filename: src/foo/mod.rs</p>
+
+<pre><code class="language-rust">// 将bar作为foo的子模块导出
+pub mod bar;
+
+// 将baz下的方法作为foo的方法导出
+mod baz;
+pub use baz::baz_func;
+
+// 导出foo下的方法
+pub fn foo_func() {
+    println!(&quot;from foo_func&quot;);
+}
+</code></pre>
+
+<p>Filename: src/foo/bar.rs</p>
+
+<pre><code class="language-rust">pub fn bar_func() {
+    println!(&quot;from bar_func&quot;);
+}
+</code></pre>
+
+<p>Filename: src/foo/baz.rs</p>
+
+<pre><code class="language-rust">pub fn baz_func() {
+    println!(&quot;from baz_func&quot;);
+}
+</code></pre>
+
+<p>Filename: src/main.rs</p>
+
+<pre><code class="language-rust">mod foo;
+
+fn main() {
+    foo::foo_func();
+    foo::bar::bar_func();
+    foo::baz_func();
 }
 </code></pre>
 

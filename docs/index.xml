@@ -6,10 +6,25 @@
     <description>Recent content on Sheng Jie&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Aug 2019 15:44:51 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2019 09:43:07 +0800</lastBuildDate>
     
 	<atom:link href="https://shengjie77.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>S.O.L.I.D Design Principles</title>
+      <link>https://shengjie77.github.io/blog/posts/design-pattern-principles/</link>
+      <pubDate>Sun, 08 Sep 2019 09:43:07 +0800</pubDate>
+      
+      <guid>https://shengjie77.github.io/blog/posts/design-pattern-principles/</guid>
+      <description>Single Responsibility Principle SRP比较常见，也很好理解，可以用下面一句话概括。
+ There should never be more than one reason for a class to change.
+ Open-closed Principle from wikipedia
+ the open/closed principle states &amp;ldquo;software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification: that is, such an entity can allow its behaviour to be extended without modifying its source code.
+ 开闭原则也比较好理解，强调模块应该通过扩展而不是修改来满足需求的变化。
+Liskov Substitutation Principle Barbara Liskov在她的论文里这样描述LSP
+ Let ф(x) be a property provable about objects x of type T.</description>
+    </item>
     
     <item>
       <title>[Rust]mod的使用</title>

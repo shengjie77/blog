@@ -1,7 +1,7 @@
 ---
 title: "S.O.L.I.D Design Principles"
 date: 2019-09-08T09:43:07+08:00
-draft: true
+draft: false
 ---
 
 # Single Responsibility Principle
@@ -9,6 +9,14 @@ draft: true
 SRP比较常见，也很好理解，可以用下面一句话概括。
 
 > There should never be more than one reason for a class to change.
+
+# Open-closed Principle
+
+from wikipedia
+
+> the open/closed principle states "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification: that is, such an entity can allow its behaviour to be extended without modifying its source code.
+
+开闭原则也比较好理解，强调模块应该通过扩展而不是修改来满足需求的变化。
 
 # Liskov Substitutation Principle
 
@@ -62,9 +70,65 @@ class Square extends Rectangle {
 
 ```
 
+# Interface Segregation Principle
+
+from wikipedia
+
+> The interface-segregation-principle(ISP) states that no client should be forced to depend on methods it does not use. ISP splits interfaces that are very large into smaller and more specific ones so that clients will only have to know about the methods that are of interest them.
+
+SRP和ISP很类似，都强调API设计的内聚和纯洁，不过它们的审视角度有差别。SRP是从设计者的角度出发，而ISP是从使用者的角度出发，比如下面这个例子。
+```TypeScript
+interface Renderable {
+    render(): void;
+}
+
+interface Shape {
+    save(): void;
+}
+
+class Rect extends Shape implements Renderable {
+    private width: number;
+    private height: number;
+
+    public setWidth(w: number) {
+        this.width = w;
+    }
+
+    public setHeight(h: number) {
+        this.height = h;
+    }
+
+    public render() {
+        // draw rect
+    }
+
+    public save() {
+        // save data
+    }
+}
+
+class RenderEngine {
+    private renderables: Renderable[];
+
+    public render() {
+        this.renderables.forEach(r => r.render());
+    }
+}
+
+class Document {
+    private shapes: Shape[];
+
+    public save() {
+        this.shape.forEach(s => s.save());
+    }
+}
+```
+
+对于Rect来说，API都和自身关系很紧密，从类设计的角度出发，符合SRP。对于RenderEngine来说，它只关心那些Renderable的对象，对于Document来说，它只关心Shape，这就是从使用的角度出发，符合ISP。
 # Dependency Inversion Principle
 
 from wikipedia
+
 > A. High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces).
 > 
 > B. Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.

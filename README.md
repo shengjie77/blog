@@ -1,20 +1,4 @@
-# Install theme
+# 目录
 
-```
-git clone https://github.com/joway/hugo-theme-yinyang.git themes/yinyang
-```
-
-# Create new post
-```
-hugo new posts/new-post-name.md
-```
-
-# Start Hugo server
-```
-hugo server -D
-```
-
-# Build
-```
-hugo
-```
+- Rust
+    - File hierarchy

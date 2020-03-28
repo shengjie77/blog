@@ -2,14 +2,8 @@ Table of Content
 ================
 
 - [Rust](##Rust)
-- [TypeScript](##TypeScript)
-- [Design Pattern](##DesignPattern)
 
 
 ## Rust
 
-- File Hierarchy
-
-## TypeScript
-
-## DesignPattern
+- [File Hierarchy](./content/rust/usage-of-mod.md)

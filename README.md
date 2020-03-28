@@ -6,4 +6,4 @@ Table of Content
 
 ## Rust
 
-- [File Hierarchy](./content/rust/usage-of-mod.md)
+- [Modules](./content/rust/modules.md)

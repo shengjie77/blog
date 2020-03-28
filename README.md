@@ -2,8 +2,8 @@ Table of Content
 ================
 
 - [Rust](##Rust)
-- [TypeScript](#TypeScript)
-- [Design Pattern](#Design Pattern)
+- [TypeScript](##TypeScript)
+- [Design Pattern](##Design Pattern)
 
 
 ## Rust

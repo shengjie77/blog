@@ -3,7 +3,7 @@ Table of Content
 
 - [Rust](##Rust)
 - [TypeScript](##TypeScript)
-- [Design Pattern](##Design Pattern)
+- [Design Pattern](##DesignPattern)
 
 
 ## Rust
@@ -12,4 +12,4 @@ Table of Content
 
 ## TypeScript
 
-## Design Pattern
+## DesignPattern

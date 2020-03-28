@@ -2,8 +2,14 @@ Table of Content
 ================
 
 - [Rust](##Rust)
+- [TypeScript](#TypeScript)
+- [Design Pattern](#Design Pattern)
 
 
 ## Rust
-- 1
-- 2
+
+- File Hierarchy
+
+## TypeScript
+
+## Design Pattern
